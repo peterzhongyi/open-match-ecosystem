@@ -423,13 +423,13 @@ func (rc *RestfulOMGrpcClient) Post(ctx context.Context, logger *logrus.Entry, u
 	}
 
 	// Log all request headers if using trace logging (slow)
-	if logrus.IsLevelEnabled(logrus.TraceLevel) {
-		headerFields := logrus.Fields{}
-		for key, value := range req.Header {
-			headerFields[key] = value
-		}
-		postLogger.WithFields(headerFields).Debug("Prepared Headers")
-	}
+	// if logrus.IsLevelEnabled(logrus.TraceLevel) {
+	// 	headerFields := logrus.Fields{}
+	// 	for key, value := range req.Header {
+	// 		headerFields[key] = value
+	// 	}
+	// 	postLogger.WithFields(headerFields).Debug("Prepared Headers")
+	// }
 
 	// Send request
 	resp, err := rc.Client.Do(req)
